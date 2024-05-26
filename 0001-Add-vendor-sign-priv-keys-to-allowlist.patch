@@ -1,0 +1,30 @@
+From 2f83a8cee8d3bb0e8b95e0c9cb6fd2c2df27eb4c Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Tue, 10 Oct 2023 16:01:04 +0200
+Subject: [PATCH] Add vendor/sign-priv/keys to allowlist
+
+Product dev certificate now requires android_certificate_directory file
+group.
+
+Change-Id: Ic12e41ca8d59ca4fea4238b57cf2feaf53b0532d
+Signed-off-by: xyzuniverse <dev.xyzuniverse@gmail.com>
+---
+ android/allowlists/allowlists.go | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/android/allowlists/allowlists.go b/android/allowlists/allowlists.go
+index 8ce8f089e..74d37c20b 100644
+--- a/android/allowlists/allowlists.go
++++ b/android/allowlists/allowlists.go
+@@ -542,6 +542,9 @@ var (
+ 
+ 		// Used for testing purposes only. Should not actually exist in the real source tree.
+ 		"testpkg/keep_build_file":/* recursive = */ false,
++
++		// Signing builds
++		"vendor/sign-priv/keys":/* recursive = */ false,
+ 	}
+ 
+ 	Bp2buildModuleAlwaysConvertList = []string{
+-- 
+2.34.1
